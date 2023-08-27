@@ -56,7 +56,7 @@ let list_cmd =
   Cmd.v info Term.(const placeholder $ setup_log)
 
 let cmd =
-  let doc = "An opinionated class assignment and directory management CLI." in
+  let doc = "An opinionated class homework management tool." in
   let info = Cmd.info "classorg" ~version:"0.1" ~doc in
   let default = Term.ret (Term.const (`Help (`Pager, None))) in
   Cmd.group ~default info [ archive_cmd; create_cmd; init_cmd; list_cmd ]
