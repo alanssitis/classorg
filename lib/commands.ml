@@ -34,7 +34,7 @@ let create_cmd =
 let init_cmd =
   let doc = "init doc" in
   let info = Cmd.info "init" ~doc in
-  Cmd.v info Term.(const placeholder $ setup_log)
+  Cmd.v info Term.(const Initialize.main $ setup_log)
 
 let list_cmd =
   let doc = "list doc" in
