@@ -44,4 +44,5 @@ let list_cmd =
 let cmd =
   let doc = "An opinionated class assignment and directory management CLI." in
   let info = Cmd.info "classorg" ~version:"0.1" ~doc in
-  Cmd.group info [ archive_cmd; create_cmd; init_cmd; list_cmd ]
+  let default = Term.ret (Term.const (`Help (`Pager, None))) in
+  Cmd.group ~default info [ archive_cmd; create_cmd; init_cmd; list_cmd ]
