@@ -1,4 +1,4 @@
 (executable
  (public_name classorg)
  (name main)
- (libraries classorg cmdliner fmt fmt.cli fmt.tty logs.fmt logs.cli logs))
+ (libraries classorg cmdliner))
