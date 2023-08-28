@@ -1,16 +1,5 @@
 open Common
 
-exception InitializeException of string
-
-let is_initialized () =
-  let root_exists = Sys.file_exists root_marker in
-  let archive_exists = Sys.file_exists archive_marker in
-  if root_exists <> archive_exists then
-    raise
-      (InitializeException
-         "classorg not properly initialized in current directory")
-  else root_exists
-
 let main () =
   try
     match is_initialized () with
