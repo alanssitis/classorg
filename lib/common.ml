@@ -16,12 +16,11 @@ let is_initialized () =
   let root_exists = Sys.file_exists root_marker in
   let archive_exists = Sys.file_exists archive_marker in
   if root_exists <> archive_exists then
-    raise
-      (ClassorgException
-         "classorg not properly initialized in current directory")
+    ClassorgException "classorg not properly initialized in current directory"
+    |> raise
   else root_exists
 
 let check_initialized () =
   match is_initialized () with
-  | false -> raise (ClassorgException "classorg is not initialized")
+  | false -> ClassorgException "classorg is not initialized" |> raise
   | true -> ()
